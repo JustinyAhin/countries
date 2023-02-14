@@ -30,10 +30,19 @@
 
 	let selectedRegion = $page.url.searchParams.get('region') || REGIONS[0].slug;
 
+	const getRegionName = (slug: string) => {
+		const region = REGIONS.find((region) => region.slug === slug);
+		return region ? region.name : '';
+	};
+
 	const handleRegionChange = () => {
 		goto(`?region=${selectedRegion}`);
 	};
 </script>
+
+<svelte:head>
+	<title>Fetching countries from {getRegionName(selectedRegion) || 'the world'}</title>
+</svelte:head>
 
 <h1>State in URL: the Svelte approach</h1>
 

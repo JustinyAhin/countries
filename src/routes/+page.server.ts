@@ -2,7 +2,6 @@ import type { PageServerLoad } from './$types';
 import type { Country } from '$lib/types';
 
 const API_URL = 'https://restcountries.com/v3.1';
-// const REGIONS = ['africa', 'americas', 'asia', 'europe', 'oceania'];
 
 const getCountriesByRegion = async (region: string) => {
 	const response = await fetch(`${API_URL}/region/${region}`);
