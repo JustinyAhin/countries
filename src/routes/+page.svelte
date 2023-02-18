@@ -44,12 +44,13 @@
 	<title>Fetching countries from {getRegionName(selectedRegion) || 'the world'}</title>
 </svelte:head>
 
-<h1>State in URL: the Svelte approach</h1>
 
-<section>
+<section class="space-y-8">
+	<h1>State in URL: the Svelte approach</h1>
+
 	<div>
-		<form>
-			<select bind:value={selectedRegion} on:change={handleRegionChange}>
+		<form class="w-full">
+			<select bind:value={selectedRegion} on:change={handleRegionChange} class="sm:w-4/12 select select-bordered">
 				{#each REGIONS as region, index}
 					<option value={region.slug}>{region.name}</option>
 				{/each}
@@ -58,7 +59,7 @@
 	</div>
 
 	{#if data.countries.length > 0}
-		<table>
+		<table class="table w-full table-zebra">
 			<thead>
 				<tr>
 					<th>Flag</th>
@@ -80,43 +81,7 @@
 </section>
 
 <style>
-	section > *:not(:first-child) {
-		margin-top: 1rem;
-	}
-
-	form {
-		width: 100%;
-	}
-
-	form select {
-		padding: 0.5rem;
-		width: 40%;
-	}
-
-	table {
-		max-width: 100%;
-		border-collapse: collapse;
-	}
-
-	table,
-	th,
-	td {
-		border: 1px solid #ccc;
-	}
-
-	th,
-	td {
-		padding: 0.5rem;
-		text-align: left;
-	}
-
-	th:first-child,
-	td:first-child {
-		width: 4rem;
-	}
-
 	.flag {
-		width: 2rem;
-		height: 1.5rem;
+		@apply w-8 h-6;
 	}
 </style>
