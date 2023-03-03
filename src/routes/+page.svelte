@@ -50,7 +50,7 @@
 
 	<div>
 		<form class="w-full">
-			<select bind:value={selectedRegion} on:change={handleRegionChange} class="sm:w-4/12 select select-bordered">
+			<select bind:value={selectedRegion} on:change={handleRegionChange} aria-label="Region filter" class="sm:w-4/12 select select-bordered">
 				{#each REGIONS as region, index}
 					<option value={region.slug}>{region.name}</option>
 				{/each}
